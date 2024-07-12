@@ -29,3 +29,20 @@ weather = pd.read_sql(query, engine)
 
 # View the first few rows of data
 print(weather.head())
+
+
+"""oeprators and where clause in sql"""
+
+# Create query for records with max temps <= 32 or snow >= 1
+query = """
+SELECT *
+  FROM weather
+  where
+  tmax<=32 or snow>=1;
+"""
+
+# Query database and assign result to wintry_days
+wintry_days = pd.read_sql(query,engine)
+
+# View summary stats about the temperatures
+print(wintry_days.describe())
