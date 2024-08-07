@@ -23,8 +23,8 @@ sorted_pop_vac_lic = pop_vac_lic.sort_values(['vacant','account','pop_2010'],
 print(sorted_pop_vac_lic.head())
 
 
-"""Merging using left on and right on
-Most of the recent big-budget science fiction movies can also be classified as action movies. You are given a table of science fiction movies called scifi_movies and another table of action movies called action_movies. Your goal is to find which movies are considered only science fiction movies. Once you have this table, you can merge the movies table in to see the movie names. Since this exercise is related to science fiction movies, use a right join as your superhero power to solve this problem."""
+"""Merging using left on and right on"""
+"""Most of the recent big-budget science fiction movies can also be classified as action movies. You are given a table of science fiction movies called scifi_movies and another table of action movies called action_movies. Your goal is to find which movies are considered only science fiction movies. Once you have this table, you can merge the movies table in to see the movie names. Since this exercise is related to science fiction movies, use a right join as your superhero power to solve this problem."""
 
 The movies, scifi_movies, and action_movies tables have been loaded for you.
 # Merge action_movies to the scifi_movies with right join
