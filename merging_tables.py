@@ -40,3 +40,21 @@ movies_and_scifi_only = movies.merge(scifi_only,left_on='id',right_on='movie_id'
 # Print the first few rows and shape of movies_and_scifi_only
 print(movies_and_scifi_only.head())
 print(movies_and_scifi_only.shape)
+
+"""Index Join"""
+# Merge sequels and financials on index id
+sequels_fin = sequels.merge(financials, on='id', how='left')
+
+# Self merge with suffixes as inner join with left on sequel and right on id
+orig_seq = sequels_fin.merge(sequels_fin, how='inner', left_on='sequel', 
+                             right_on='id', right_index=True,
+                             suffixes=('_org','_seq'))
+
+# Add calculation to subtract revenue_org from revenue_seq 
+orig_seq['diff'] = orig_seq['revenue_seq'] - orig_seq['revenue_org']
+
+# Select the title_org, title_seq, and diff 
+titles_diff = orig_seq[['title_org','title_seq','diff']]
+
+# Print the first rows of the sorted titles_diff
+print(titles_diff.sort_values('diff',ascending=False).head())
